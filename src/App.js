@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import Baku from './Baku';
 var request = require('superagent');
 request.get('http://www.soccermemes.net/images/loading.gif')
 const loading_image_url = 'http://www.cuisson.co.uk/templates/cuisson/supersize/slideshow/img/progress.BAK-FOURTH.gif'
 const base_url = process.env.URL || 'http://bbakku.tk'
+const baku = new Baku()
 
 export default class App extends Component {
   constructor(props) {
@@ -13,12 +15,8 @@ export default class App extends Component {
   }
   handleFileSelect = (e)=>{
     this.setState({image:loading_image_url})
-    var formData = new FormData();
-    formData.append('file',e.target.files[0])
-    request.post(`${base_url}/image`)
-    .send(formData)
-    .end((e,res)=>{
-      this.setState({image:res.body.url})
+    baku.upload(e.target.files[0],(e,res)=>{
+      this.setState({image:res.url})
     })
   };
 

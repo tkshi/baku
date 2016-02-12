@@ -1,11 +1,13 @@
 {
-  "name": "react-hot-boilerplate",
-  "version": "1.0.0",
+  "name": "ba-ku",
+  "version": "1.0.1",
   "description": "Boilerplate for ReactJS project with hot code reloading",
   "scripts": {
     "start": "node server.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "dist": "babel src/Baku.js > dist/Baku.js"
   },
+  "main":"dist/Baku.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/gaearon/react-hot-boilerplate.git"
